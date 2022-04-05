@@ -43,5 +43,5 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"TectonicH_Notepad-a-like-App" /o:"tectonich" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          MSBuild.exe "Notepad-a-like App.sln" /t:Rebuild
+          dotnet build "Notepad-a-like App.sln"
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
